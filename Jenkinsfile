@@ -13,11 +13,6 @@ pipeline {
         sleep 5
       }
     }
-    stage('Deploy') {
-      steps {
-        echo "deploying"
-        stageMessage "sample stage message"
-      }
-    }
+   }
   }
 }
