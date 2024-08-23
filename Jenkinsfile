@@ -36,7 +36,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        echo "Deploy in production"
+        echo "Deployement ongoing "
         sleep 10
       }
     }
