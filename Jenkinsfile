@@ -3,13 +3,15 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo "building"
+	echo "building"
+	sh "docker build -t ."
         sleep 3
       }
     }
     stage('Test Security') {
       steps {
-        echo "testing"
+        echo "starting testing...."
+	sh "testingSecutity.sh"
         timeout(time: 15, unit: "MINUTES") {
 	          input message: 'Do you want to review the security findings', ok: 'Yes'
 	      }
