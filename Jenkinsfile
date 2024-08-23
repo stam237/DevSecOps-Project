@@ -4,15 +4,23 @@ pipeline {
     stage('Build') {
       steps {
         echo "building"
+        sleep 3
+      }
+    }
+    stage('Test Security') {
+      steps {
+        echo "testing"
+        timeout(time: 15, unit: "MINUTES") {
+	          input message: 'Do you want to review the security findings', ok: 'Yes'
+	      }
         sleep 5
       }
     }
-    stage('Test') {
+    stage('Deploy') {
       steps {
-        echo "testing"
-        sleep 5
+        echo "Deploy in production"
+        sleep 10
       }
     }
   }
 }
-
